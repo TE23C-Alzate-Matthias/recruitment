@@ -31,5 +31,6 @@ while (current.Count < 3)
         Console.WriteLine($"{current[i]}");
     }
 
+    Console.ReadKey();
     
 }
