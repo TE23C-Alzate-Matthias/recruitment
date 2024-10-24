@@ -13,13 +13,19 @@
 
 List<string> current = [];
 
+string text;
+string recruit;
+
+int num;
 int i;
+
+bool success;
 
 while (current.Count < 3) 
 {
     Console.WriteLine("=== Potential Recruits ===");
 
-    for (i = 0; i < potential.Count; i++);
+    for (i = 0; i < potential.Count; i++)
     {
         Console.WriteLine($"[{i}] {potential[i]}");
     }
@@ -31,6 +37,39 @@ while (current.Count < 3)
         Console.WriteLine($"{current[i]}");
     }
 
-    Console.ReadKey();
+    Console.WriteLine("\nChoose a recruit:");
+    num = 0;
+    success = false;
     
+    while (success == false || num < 0 || num >= potential.Count) 
+    {
+        text = Console.ReadLine();
+        success = int.TryParse(text, out num);
+
+        if (success == false) 
+        {
+
+            Console.WriteLine("That is not a number, please try again\n");
+            Console.ReadLine();
+
+        }
+        else if (num < 0 || num >= potential.Count)
+        {
+            
+            Console.WriteLine("That is not a valid index, please try again\n");
+            Console.ReadLine();
+
+        }
+
+        recruit = potential[num];
+        current.Add(recruit);
+        potential.RemoveAt(num);
+
+    }
+
 }
+
+Console.WriteLine($"You are recruiting a total of {current.Count} soliders.");
+
+Console.WriteLine("Press ENTER to quit the program");
+Console.ReadLine();
