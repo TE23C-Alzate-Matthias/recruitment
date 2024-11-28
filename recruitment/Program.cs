@@ -50,26 +50,24 @@ while (current.Count < 3)
         {
 
             Console.WriteLine("That is not a number, please try again\n");
-            Console.ReadLine();
 
         }
         else if (num < 0 || num >= potential.Count)
         {
             
             Console.WriteLine("That is not a valid index, please try again\n");
-            Console.ReadLine();
 
         }
+
+    }
 
         recruit = potential[num];
         current.Add(recruit);
         potential.RemoveAt(num);
 
-    }
-
 }
 
-Console.WriteLine($"You are recruiting a total of {current.Count} soliders.");
+Console.WriteLine($"You have recruted a total of {current.Count} soliders.");
 
 Console.WriteLine("Press ENTER to quit the program");
 Console.ReadLine();
